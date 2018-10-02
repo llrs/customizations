@@ -1,0 +1,23 @@
+# R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
+
+language: R
+sudo: false
+cache: packages
+
+r_github_packages:
+  - jimhester/lintr # To use linter
+after_script:
+    - R CMD INSTALL $PKG_TARBALL # To use linter
+    - Rscript -e 'lintr::lint_package()' # To use linter
+after_success:
+    - Rscript -e 'covr::codecov()' # To use codecoverage
+os:
+    - linux
+r:
+    - bioc-devel
+
+
+notifications: # To avoid filling the inbox
+  email:
+    on_success: change
+    on_failure: change
