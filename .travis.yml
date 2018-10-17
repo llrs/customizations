@@ -1,0 +1,30 @@
+# R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
+
+language: R
+sudo: false
+cache: packages
+
+# Test on the three main OS
+os:
+  - windows
+  - linux
+  - osx
+
+r_github_packages:
+- jimhester/lintr
+
+# If it is a package
+after_script:
+    - R CMD INSTALL $PKG_TARBALL
+    - Rscript -e 'lintr::lint_package()' # To look for style
+after_success:
+  - Rscript -e 'library(covr); codecov()' # To look for coverage
+#  - R CMD BiocCheck . # For new packages to go into Bioconductor
+r:
+ - bioc-devel # To test in bioc-devel too
+
+# To prevent clotting the notifications
+notifications:
+  email:
+    on_success: change
+on_failure: change
