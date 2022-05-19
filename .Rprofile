@@ -16,14 +16,14 @@ options(usethis.full_name = "Lluís Revilla Sancho",  # For package creation
           usethis.description = list(
             "Authors@R" = utils::person(
               "Lluís", "Revilla Sancho",
-              email = "lluis.revilla+packages@gmail.com",
+              email = "lluis.revilla@gmail.com",
               role = c("aut", "cre"),
               comment = c(ORCID = "0000-0001-9747-2570")
             ),
             License = "MIT + file LICENSE",
             Version = "0.0.0.9000"),
           servr.daemon = TRUE,
-          usethis.destdir = "x/projects/",
+          usethis.destdir = "~/Documents/projects/",
           warnPartialMatchArgs = TRUE,
           warnPartialMatchDollar = TRUE,
           warnPartialMatchAttr = TRUE
