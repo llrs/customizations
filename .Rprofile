@@ -1,11 +1,26 @@
-if (interactive()) {
-    suppressPackageStartupMessages(library("devtools")) # Develop packages
+
+if (interactive() && !isNamespace(environment())) {
+  if (requireNamespace("usethis", quietly = TRUE)) {
     suppressPackageStartupMessages(library("usethis")) # Develop packages
+  }
+  if (requireNamespace("devtools", quietly = TRUE)) {
+    suppressPackageStartupMessages(library("devtools")) # Develop packages
+  }
+  if (requireNamespace("testthat", quietly = TRUE)) {
     suppressPackageStartupMessages(library("testthat")) # Develop packages
+  }
+  if (requireNamespace("cyclocomp", quietly = TRUE)) {
     suppressPackageStartupMessages(library("cyclocomp")) # Develop packages
+  }
+  if (requireNamespace("conflicted", quietly = TRUE)) {
     suppressPackageStartupMessages(library("conflicted")) # Develop packages
+  }
+  if (requireNamespace("covrpage", quietly = TRUE)) {
     suppressPackageStartupMessages(library("covrpage")) # Develop packages
   }
+}
+
+  
 
 options(usethis.full_name = "Lluís Revilla Sancho",  # For package creation
         Ncpus = 4,
