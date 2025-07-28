@@ -1,0 +1,39 @@
+[user]
+	email = lluis.revilla@gmail.com
+	name = Lluís
+	signingkey = 8074FA2D79740589
+[push]
+	default = simple
+	autosetupRemote = true
+[merge]
+	tool = meld
+	conflictStyle = diff3
+[core]
+	excludesfile = ~/.gitignore
+	symlinks = false
+[usethis]
+[credential]
+	helper = cache
+[pull]
+	ff = only
+	rebase = true
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg
+# Doesn't support R yet
+# [merge "mergiraf"]
+#    name = mergiraf
+#    driver = mergiraf merge --git %O %A %B -s %S -x %X -y %Y -p %P -l %L
+
+[secrets]
+	providers = git secrets --aws-provider
+	patterns = (A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16}
+	patterns = (\"|')?(AWS|aws|Aws)?_?(SECRET|secret|Secret)?_?(ACCESS|access|Access)?_?(KEY|key|Key)(\"|')?\\s*(:|=>|=)\\s*(\"|')?[A-Za-z0-9/\\+=]{40}(\"|')?
+	patterns = (\"|')?(AWS|aws|Aws)?_?(ACCOUNT|account|Account)_?(ID|id|Id)?(\"|')?\\s*(:|=>|=)\\s*(\"|')?[0-9]{4}\\-?[0-9]{4}\\-?[0-9]{4}(\"|')?
+	allowed = AKIAIOSFODNN7EXAMPLE
+	allowed = wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+[init]
+	defaultBranch = main
+[fetch]
+	prune = true
